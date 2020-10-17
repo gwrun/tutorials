@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+  streamlit: 
+    build: 
+      dockerfile: Dockerfile.streamlit
+      context: .
+    command: "streamlit hello"
+  gw:
+    build:
+      dockerfile: Dockerfile.gw
+      context: .
+    command: ["gw", "--url", "http://streamlit:8501", "--secrets", "/run/secrets/tunnel.json"]
+    secrets:
+      - tunnel.json
+secrets:
+  tunnel.json:
+    file: secrets/tunnel.json
