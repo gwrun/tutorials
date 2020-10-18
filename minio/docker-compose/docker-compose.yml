@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  minio: 
+    image: minio/minio
+    command: "server /data"
+    volumes:
+      - ./data:/data
+  gw:
+    build:
+      dockerfile: Dockerfile.gw
+      context: .
+    command: ["gw", "--url", "http://minio:9000", "--secrets", "/run/secrets/tunnel.json"]
+    secrets:
+      - tunnel.json
+secrets:
+  tunnel.json:
+    file: secrets/tunnel.json
