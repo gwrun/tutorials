@@ -1,0 +1,17 @@
+version: "3.1"
+services:
+  plotly: 
+    build: 
+      dockerfile: Dockerfile.plotly
+      context: .
+    command: "python app/app.py"
+  gw:
+    build:
+      dockerfile: Dockerfile.gw
+      context: .
+    command: ["gw", "--url", "http://plotly:8050", "--secrets", "/run/secrets/tunnel.json"]
+    secrets:
+      - tunnel.json
+secrets:
+  tunnel.json:
+    file: secrets/tunnel.json

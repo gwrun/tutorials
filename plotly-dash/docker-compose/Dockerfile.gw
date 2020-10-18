@@ -1,0 +1,4 @@
+FROM golang
+
+ADD https://storage.googleapis.com/gw.run/builds/master/gwrun-linux-amd64 /usr/local/bin/gw
+RUN chmod +x /usr/local/bin/gw
