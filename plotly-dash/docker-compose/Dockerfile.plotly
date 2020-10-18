@@ -1,0 +1,5 @@
+FROM continuumio/anaconda3
+COPY dash-oil-and-gas app
+RUN pip install -r app/requirements.txt
+ADD https://raw.githubusercontent.com/plotly/datasets/master/dash-sample-apps/dash-oil-and-gas/data/points.pkl app/data/points.pkl
+ADD https://github.com/plotly/datasets/raw/master/dash-sample-apps/dash-oil-and-gas/data/wellspublic.csv app/data/wellspublic.csv
