@@ -1,0 +1,21 @@
+version: "3.8"
+services:
+  grafana:
+    image: grafana/grafana
+    volumes:
+      - /var/lib/grafana
+    environment:
+      # see https://grafana.com/docs/grafana/latest/administration/configuration/#configure-with-environment-variables
+      # we disable password based authentication as users woudl need to authenticate anyway using their email
+      # while connecting via gw.run tunnel
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+  gw:
+    build:
+      dockerfile: Dockerfile.gw
+      context: .
+    command: ["gw", "--url", "http://grafana:3000", "--secrets", "/run/secrets/tunnel.json"]
+    secrets:
+      - tunnel.json
+secrets:
+  tunnel.json:
+    file: secrets/tunnel.json

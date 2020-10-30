@@ -1,0 +1,20 @@
+version: "3.8"
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    volumes:
+      - /var/lib/pgadmin
+    environment:
+      - MASTER_PASSWORD_REQUIRED=False
+      - PGADMIN_DEFAULT_EMAIL=user@domain.com
+      - PGADMIN_DEFAULT_PASSWORD=password
+  gw:
+    build:
+      dockerfile: Dockerfile.gw
+      context: .
+    command: ["gw", "--url", "http://pgadmin", "--secrets", "/run/secrets/tunnel.json"]
+    secrets:
+      - tunnel.json
+secrets:
+  tunnel.json:
+    file: secrets/tunnel.json
