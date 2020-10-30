@@ -1,14 +1,15 @@
-1. Create a new tunnel and store its tunnel secrets file into `secrets/tunnel.json`
+How to self-host Grafana on local server or VM, 
+and provide a secure authenticated access to it over the internet using [gw.run](https://gw.run). 
 
-2. Run service
+1. [Create a new tunnel](https://gw.run/admin) and store its tunnel secrets file into `secrets/tunnel.json`
+
+2. Run Grafana
 ```
 $ docker-compose up --build
 ```
 
-## initial configuration
-- Grafana is configured to only be accessible using [gw.run](https://gw.run) secure tunnel in read-only mode. 
-- Any user that you authorized for this tunnel will be able to see dashboards in read-only mode
-- inside Grafana, do additional sign in with default admin/admin password to map more users
+3. Open the tunnel URL and you should see Grafana welcome screen
+Do additional sign in with default admin/admin password to change default administration credentials
+and create more users with creation rights. 
 
-- The `volume` setting in the `docker-compose.yml` defines local directory to expose to.
-- The Grafana documentation is available at [grafana.com/docs](https://grafana.com/docs/).
+Grafana documentation is available at [grafana.com/docs](https://grafana.com/docs/)
