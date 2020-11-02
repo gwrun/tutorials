@@ -9,9 +9,7 @@ services:
       - PGADMIN_DEFAULT_EMAIL=user@domain.com
       - PGADMIN_DEFAULT_PASSWORD=password
   gw:
-    build:
-      dockerfile: Dockerfile.gw
-      context: .
+    image: gwrun/gwrun
     command: ["gw", "--url", "http://pgadmin", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json

@@ -1,0 +1,3 @@
+FROM continuumio/anaconda3
+COPY index.ipynb requirements.txt ./
+RUN pip install -r requirements.txt

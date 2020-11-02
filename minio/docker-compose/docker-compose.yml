@@ -6,9 +6,7 @@ services:
     volumes:
       - ./data:/data
   gw:
-    build:
-      dockerfile: Dockerfile.gw
-      context: .
+    image: gwrun/gwrun
     command: ["gw", "--url", "http://minio:9000", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json

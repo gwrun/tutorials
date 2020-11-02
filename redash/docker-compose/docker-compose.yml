@@ -42,9 +42,7 @@ services:
       POSTGRES_HOST_AUTH_METHOD: "trust"
     restart: unless-stopped
   gw:
-    build:
-      dockerfile: Dockerfile.gw
-      context: .
+    image: gwrun/gwrun
     command: ["gw", "--url", "http://server:5000", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json

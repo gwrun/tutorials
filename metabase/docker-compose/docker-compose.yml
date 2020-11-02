@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  metabase:
+    image: metabase/metabase
+  gw:
+    image: gwrun/gwrun
+    command: ["gw", "--url", "http://metabase:3000", "--secrets", "/run/secrets/tunnel.json"]
+    secrets:
+      - tunnel.json
+secrets:
+  tunnel.json:
+    file: secrets/tunnel.json

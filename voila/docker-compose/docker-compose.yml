@@ -1,0 +1,15 @@
+version: "3.8"
+services:
+  voila: 
+    build: 
+      dockerfile: Dockerfile.voila
+      context: .
+    command: ["voila", "index.ipynb"]
+  gw:
+    image: gwrun/gwrun
+    command: ["gw", "--url", "http://voila:8866", "--secrets", "/run/secrets/tunnel.json"]
+    secrets:
+      - tunnel.json
+secrets:
+  tunnel.json:
+    file: secrets/tunnel.json

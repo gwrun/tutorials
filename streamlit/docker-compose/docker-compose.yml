@@ -6,9 +6,7 @@ services:
       context: .
     command: "streamlit hello"
   gw:
-    build:
-      dockerfile: Dockerfile.gw
-      context: .
+    image: gwrun/gwrun
     command: ["gw", "--url", "http://streamlit:8501", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json

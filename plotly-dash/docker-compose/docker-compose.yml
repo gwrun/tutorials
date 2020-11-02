@@ -6,9 +6,7 @@ services:
       context: .
     command: "python app/app.py"
   gw:
-    build:
-      dockerfile: Dockerfile.gw
-      context: .
+    image: gwrun/gwrun
     command: ["gw", "--url", "http://plotly:8050", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json
