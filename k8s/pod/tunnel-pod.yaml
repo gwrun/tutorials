@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+    name: my-tunnel-gw-run
+spec:
+  containers:
+    - name: gw-run
+      image: gwrun/gwrun
+      command: ["gw", "--url", "https://kubernetes-dashboard.kube-system", "--secrets", "/etc/gwrun/tunnel.json"]
+      volumeMounts:
+        - name: secrets
+          mountPath: /etc/gwrun
+  volumes:
+    - name: secrets
+      secret:
+        secretName: my-tunnel-gw-run
+
