@@ -7,7 +7,7 @@ services:
       - ./data:/data
   gw:
     image: gwrun/gwrun
-    command: ["gw", "--url", "http://minio:9000", "--secrets", "/run/secrets/tunnel.json"]
+    command: ["gw", "tunnel", "--url", "http://minio:9000", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json
 secrets:

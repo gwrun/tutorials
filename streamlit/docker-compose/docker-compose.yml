@@ -7,7 +7,7 @@ services:
     command: "streamlit hello"
   gw:
     image: gwrun/gwrun
-    command: ["gw", "--url", "http://streamlit:8501", "--secrets", "/run/secrets/tunnel.json"]
+    command: ["gw", "tunnel", "--url", "http://streamlit:8501", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json
 secrets:

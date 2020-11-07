@@ -81,7 +81,7 @@ services:
 
   gw:
     image: gwrun/gwrun
-    command: ["gw", "--url", "http://rocketchat:3000", "--secrets", "/run/secrets/tunnel.json"]
+    command: ["gw", "tunnel", "--url", "http://rocketchat:3000", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json
 secrets:

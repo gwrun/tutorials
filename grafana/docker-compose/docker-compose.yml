@@ -11,7 +11,7 @@ services:
       - GF_AUTH_ANONYMOUS_ENABLED=true
   gw:
     image: gwrun/gwrun
-    command: ["gw", "--url", "http://grafana:3000", "--secrets", "/run/secrets/tunnel.json"]
+    command: ["gw", "tunnel", "--url", "http://grafana:3000", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json
 secrets:

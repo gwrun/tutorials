@@ -12,7 +12,7 @@ services:
       - POSTGRES_USER=odoo
   gw:
     image: gwrun/gwrun
-    command: ["gw", "--url", "http://odoo:8069", "--secrets", "/run/secrets/tunnel.json"]
+    command: ["gw", "tunnel", "--url", "http://odoo:8069", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json
 secrets:

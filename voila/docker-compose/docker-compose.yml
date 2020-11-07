@@ -7,7 +7,7 @@ services:
     command: ["voila", "index.ipynb"]
   gw:
     image: gwrun/gwrun
-    command: ["gw", "--url", "http://voila:8866", "--secrets", "/run/secrets/tunnel.json"]
+    command: ["gw", "tunnel", "--url", "http://voila:8866", "--secrets", "/run/secrets/tunnel.json"]
     secrets:
       - tunnel.json
 secrets:

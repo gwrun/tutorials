@@ -6,7 +6,7 @@ spec:
   containers:
     - name: gw-run
       image: gwrun/gwrun
-      command: ["gw", "--url", "https://kubernetes-dashboard.kube-system", "--secrets", "/etc/gwrun/tunnel.json"]
+      command: ["gw", "tunnel", "--url", "https://kubernetes-dashboard.kube-system", "--secrets", "/etc/gwrun/tunnel.json"]
       volumeMounts:
         - name: secrets
           mountPath: /etc/gwrun
