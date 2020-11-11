@@ -1,6 +1,6 @@
 # Running a streamlit application with docker-compose
 
-Create a new tunnel and store its tunnel secrets file into `secrets/tunnel.json`
+[Create a new tunnel](https://gw.run/admin) and store its tunnel secrets file into `secrets/tunnel.json`
 
 ```shell
 $ docker-compose up --build

@@ -3,6 +3,10 @@
 If you want to share access to a local folder(s) to a group of people, 
 consider using `min.io` embedded web server which provides a nice embedded web server
 
+[Create a new tunnel](https://gw.run/admin) and store its tunnel secrets file into `secrets/tunnel.json`
+
+Then 
+
 ```shell
 $ docker-compose up --build
 ```

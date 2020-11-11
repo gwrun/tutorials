@@ -1,7 +1,8 @@
 # Running Plotly Dash apps with docker-compose
 
+This tutorial will run your Plotly Dash inside a Docker container, and 
 
-Create a new tunnel and store its tunnel secrets file into `secrets/tunnel.json`
+First, [Create a new tunnel](https://gw.run/admin) and store its tunnel secrets file into `secrets/tunnel.json`
 
 ```shell
 $ docker-compose up --build
